@@ -35,15 +35,18 @@ const App: React.FC = () => {
   const AddTodo: AddTodo = newTodo => {
     setTodos([...todos, { text: newTodo, complete: false }]);
   }
+  const renderTodos = () => todos.map(todo => <TodoList todo={todo} toggleTodo={toggleTodo} />)
 
   return (
     <React.Fragment>
-      <TodoList todo={todos[0]} toggleTodo={toggleTodo} />
-      <TodoList todo={todos[1]} toggleTodo={toggleTodo} />
+      {renderTodos()}
       <Input addTodo={AddTodo} />
     </React.Fragment>
 
   );
+
+
+
 }
 
 export default App;
